@@ -6,7 +6,7 @@ class loc_data:
 
 	def __init__(self, locName, wDatas):
 		self.locName = locName
-		sorted(wDatas,key= lambda wdata:wdata.startDateTime)
+		sorted(wDatas,key= lambda wdata:(wdata.startDate,wdata.startTime))
 		self.wDatas = wDatas
 
 
@@ -39,10 +39,7 @@ class wData:
 		self.maxT = maxT
 		self.minT = minT
 
-		self.timeSection = timeAMorPM(startTime)
-
-	def timeAMorPM(time):
-		if time.hour >= 12:
-			return 'PM'
+		if startTime.hour >= 12:
+			self.timeSection = 'PM'
 		else :
-			return 'AM'
+			self.timeSection = 'AM'

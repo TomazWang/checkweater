@@ -119,7 +119,7 @@ def covertToDateAndTime(timeStr):
 	dateAndTimeStr = timeStr.split('T')
 
 	dateStr = dateAndTimeStr[0]
-	timeStr = (dateAndTimeStr[1].spilt('+'))[0]
+	timeStr = (dateAndTimeStr[1].split('+'))[0]
 
 	date = datetime.datetime.strptime(dateStr,'%Y-%m-%d').date()
 	time = datetime.datetime.strptime(timeStr,'%X').time()
